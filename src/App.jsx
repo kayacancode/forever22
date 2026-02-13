@@ -16,17 +16,17 @@ function App() {
 
       <footer className="py-6 px-8">
         <div className="flex items-center justify-between">
-          <p className="text-black text-sm">
+          <p className="text-black text-sm font-light">
             © {new Date().getFullYear()} Forever 22 LLC. All rights reserved.
           </p>
           <nav className="flex gap-12">
-            <a href="#" className="text-black text-sm hover:opacity-70 transition-opacity">
+            <a href="#" className="text-black text-sm font-light hover:opacity-70 transition-opacity">
               Terms & Conditions
             </a>
-            <a href="#" className="text-black text-sm hover:opacity-70 transition-opacity">
+            <a href="#" className="text-black text-sm font-light hover:opacity-70 transition-opacity">
               Privacy Policy
             </a>
-            <a href="#" className="text-black text-sm hover:opacity-70 transition-opacity">
+            <a href="#" className="text-black text-sm font-light hover:opacity-70 transition-opacity">
               Contact
             </a>
           </nav>
