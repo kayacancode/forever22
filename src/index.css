@@ -9,3 +9,22 @@
 body {
   font-family: 'Anton', sans-serif;
 }
+
+@keyframes colorFlash {
+  0%, 100% {
+    color: black;
+  }
+  25% {
+    color: purple;
+  }
+  50% {
+    color: red;
+  }
+  75% {
+    color: green;
+  }
+}
+
+.color-flash {
+  animation: colorFlash 20s infinite;
+}
