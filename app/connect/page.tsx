@@ -1,10 +1,8 @@
-import { Link } from 'react-router-dom'
-
-function Connect() {
+export default function Connect() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <main className="flex-1 flex items-center justify-center">
-        <div className="text-center font-mono font-light">
+        <div className="text-center font-[family-name:var(--font-mono)] font-light">
           <p className="text-black text-xl mb-8">
             Building institutional intelligence
           </p>
@@ -26,12 +24,10 @@ function Connect() {
       </main>
 
       <footer className="py-6 px-8">
-        <p className="text-black text-sm font-light font-mono text-center">
+        <p className="text-black text-sm font-light font-[family-name:var(--font-mono)] text-center">
           © {new Date().getFullYear()} Forever 22 LLC. All rights reserved.
         </p>
       </footer>
     </div>
-  )
+  );
 }
-
-export default Connect

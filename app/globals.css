@@ -7,7 +7,9 @@
 }
 
 body {
-  font-family: 'Anton', sans-serif;
+  font-family: var(--font-anton), sans-serif;
+  background: #ffffff;
+  color: #000000;
 }
 
 @keyframes colorFlash {
