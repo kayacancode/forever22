@@ -5,6 +5,9 @@ function App() {
     <div className="min-h-screen bg-white flex flex-col">
       <main className="flex-1 flex items-center justify-center">
         <div className="text-center">
+          <p className="text-black font-light font-mono text-base tracking-wide mb-8">
+            AI is a forever thing.
+          </p>
           <h1
             className="uppercase tracking-tight color-flash"
             style={{
@@ -17,6 +20,9 @@ function App() {
           </h1>
           <Link to="/connect" className="mt-4 text-black font-light font-mono text-lg tracking-wide block hover:opacity-70 transition-opacity">
             Connect
+          </Link>
+          <Link to="/companies" className="mt-2 text-black font-light font-mono text-lg tracking-wide block hover:opacity-70 transition-opacity">
+            Companies
           </Link>
         </div>
       </main>
