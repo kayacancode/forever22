@@ -15,9 +15,28 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Forever 22 - AI is a forever thing.",
-  description: "Building institutional intelligence systems that understand the real world.",
+  description: "We build institutional intelligence systems — AI that turns your team's knowledge into systems that remember, learn, and scale with you.",
   icons: {
     icon: "/favicon.svg",
+  },
+  openGraph: {
+    title: "Forever 22 - AI is a forever thing.",
+    description: "We build institutional intelligence systems — AI that turns your team's knowledge into systems that remember, learn, and scale with you.",
+    images: [
+      {
+        url: "/forever22artlogo.png",
+        width: 1024,
+        height: 1024,
+        alt: "Forever 22 - Created with Institutional Intelligence",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Forever 22 - AI is a forever thing.",
+    description: "We build institutional intelligence systems — AI that turns your team's knowledge into systems that remember, learn, and scale with you.",
+    images: ["/forever22artlogo.png"],
   },
 };
 
