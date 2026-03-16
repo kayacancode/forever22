@@ -155,9 +155,9 @@ const projects = [
     complexity: 3,
     color: "bg-blue-500",
     github: null,
-    demo: null,
+    demo: "https://genai-app-heyneighborchicago-1-1773519509466-682125704928.us-central1.run.app/?key=yuGJqYhoUoWHhBwI5WoxyFPrDBYNF1dL",
     video: null,
-    image: null,
+    image: "/hackathon-screenshots/hey-neighbor-chicago.png",
   },
   {
     name: "BREWMATCH",
