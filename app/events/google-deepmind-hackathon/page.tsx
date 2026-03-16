@@ -4,7 +4,23 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 
-const projects = [
+interface Project {
+  name: string;
+  team: string;
+  description: string;
+  fullDescription: string;
+  geminiUsage: string;
+  categories: string[];
+  complexity: number;
+  color: string;
+  github: string | null;
+  demo: string | null;
+  video: string | null;
+  video2?: string | null;
+  image: string | null;
+}
+
+const projects: Project[] = [
   {
     name: "TENKEN",
     team: "Ricky",
