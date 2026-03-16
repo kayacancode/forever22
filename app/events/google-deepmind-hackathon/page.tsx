@@ -512,8 +512,23 @@ const categoryShort: Record<string, string> = {
   "Most Artistic": "Artistic",
 };
 
+const categoryDescriptions: Record<string, string> = {
+  "Ready to Ship": "Strong execution, completeness, and robustness of the build (well-scoped, well-built, \"ship-ready\" projects).",
+  "Most Unexpected Use of Gemini": "Surprising, inventive uses of AI—projects that nobody saw coming.",
+  "Best Chicago Energy": "Projects that use local/Chicago-focused data (e.g., WBC economic report, public data sets) to benefit the city or its communities.",
+  "Most Artistic": "Focus on artistry and expression (e.g., short films, animated pieces, generative art, creative storytelling) leveraging Gemini and related tools.",
+};
+
+const allCategories = ["Ready to Ship", "Most Unexpected Use of Gemini", "Best Chicago Energy", "Most Artistic"];
+
 export default function GoogleDeepMindHackathon() {
   const [expandedProject, setExpandedProject] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [showGuide, setShowGuide] = useState(false);
+
+  const filteredProjects = selectedCategory
+    ? projects.filter((p) => p.categories.includes(selectedCategory))
+    : projects;
 
   return (
     <div className="min-h-screen bg-white py-8 sm:py-16 px-4 sm:px-8 md:px-16 lg:px-24">
@@ -556,8 +571,63 @@ export default function GoogleDeepMindHackathon() {
         </Link>
       </nav>
 
-      <div className="mt-8 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-        {projects.map((project, index) => (
+      {/* Category Filter & Guide */}
+      <div className="mt-8 sm:mt-12">
+        <div className="flex flex-wrap items-center gap-2 mb-4">
+          <span className="text-gray-500 font-[family-name:var(--font-mono)] text-xs sm:text-sm mr-2">Filter:</span>
+          <button
+            onClick={() => setSelectedCategory(null)}
+            className={`px-3 py-1.5 rounded font-[family-name:var(--font-mono)] text-xs sm:text-sm font-medium transition-colors ${
+              selectedCategory === null
+                ? "bg-gray-800 text-white"
+                : "bg-gray-200 text-gray-600 hover:bg-gray-300"
+            }`}
+          >
+            All ({projects.length})
+          </button>
+          {allCategories.map((cat) => {
+            const count = projects.filter((p) => p.categories.includes(cat)).length;
+            return (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(selectedCategory === cat ? null : cat)}
+                className={`px-3 py-1.5 rounded font-[family-name:var(--font-mono)] text-xs sm:text-sm font-medium transition-colors ${
+                  selectedCategory === cat
+                    ? `${categoryColors[cat]} text-white`
+                    : "bg-gray-200 text-gray-600 hover:bg-gray-300"
+                }`}
+              >
+                {categoryShort[cat]} ({count})
+              </button>
+            );
+          })}
+          <button
+            onClick={() => setShowGuide(!showGuide)}
+            className="ml-2 text-gray-400 hover:text-gray-600 font-[family-name:var(--font-mono)] text-xs underline"
+          >
+            {showGuide ? "hide guide" : "category guide"}
+          </button>
+        </div>
+
+        {/* Category Guide */}
+        {showGuide && (
+          <div className="bg-gray-50 rounded-lg p-4 mb-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {allCategories.map((cat) => (
+              <div key={cat} className="flex gap-3">
+                <span className={`${categoryColors[cat]} text-white text-xs font-bold px-2 py-1 rounded font-[family-name:var(--font-mono)] h-fit whitespace-nowrap`}>
+                  {categoryShort[cat]}
+                </span>
+                <p className="text-gray-600 text-xs font-[family-name:var(--font-mono)]">
+                  {categoryDescriptions[cat]}
+                </p>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div className="mt-4 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        {filteredProjects.map((project, index) => (
           <div key={index} className="flex flex-col">
             <div className="relative">
               {/* Category Tags */}
