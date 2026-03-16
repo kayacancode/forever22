@@ -525,6 +525,7 @@ export default function GoogleDeepMindHackathon() {
   const [expandedProject, setExpandedProject] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [showGuide, setShowGuide] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState<{ src: string; alt: string } | null>(null);
 
   const filteredProjects = selectedCategory
     ? projects.filter((p) => p.categories.includes(selectedCategory))
@@ -650,19 +651,19 @@ export default function GoogleDeepMindHackathon() {
               )}
 
               {project.image ? (
-                <a
-                  href={project.video || project.demo || project.github || "#"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="aspect-[4/3] bg-gray-100 border border-gray-200 relative group cursor-pointer overflow-hidden block"
-                >
-                  <Image
-                    src={project.image}
-                    alt={project.name}
-                    fill
-                    className="object-cover object-top group-hover:scale-105 transition-transform duration-300"
-                  />
-                  {project.video && (
+                project.video ? (
+                  <a
+                    href={project.video}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="aspect-[4/3] bg-gray-100 border border-gray-200 relative group cursor-pointer overflow-hidden block"
+                  >
+                    <Image
+                      src={project.image}
+                      alt={project.name}
+                      fill
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                    />
                     <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity">
                       <div className="w-12 h-12 bg-black/70 rounded-full flex items-center justify-center">
                         <svg className="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
@@ -670,8 +671,27 @@ export default function GoogleDeepMindHackathon() {
                         </svg>
                       </div>
                     </div>
-                  )}
-                </a>
+                  </a>
+                ) : (
+                  <button
+                    onClick={() => setLightboxImage({ src: project.image!, alt: project.name })}
+                    className="aspect-[4/3] bg-gray-100 border border-gray-200 relative group cursor-pointer overflow-hidden block w-full"
+                  >
+                    <Image
+                      src={project.image}
+                      alt={project.name}
+                      fill
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center">
+                        <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                        </svg>
+                      </div>
+                    </div>
+                  </button>
+                )
               ) : project.video ? (
                 <a
                   href={project.video}
@@ -782,6 +802,32 @@ export default function GoogleDeepMindHackathon() {
         </p>
       </footer>
       </div>
+
+      {/* Lightbox Modal */}
+      {lightboxImage && (
+        <div
+          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 cursor-pointer"
+          onClick={() => setLightboxImage(null)}
+        >
+          <button
+            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+            onClick={() => setLightboxImage(null)}
+          >
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <div className="relative max-w-4xl max-h-[80vh] w-full" onClick={(e) => e.stopPropagation()}>
+            <Image
+              src={lightboxImage.src}
+              alt={lightboxImage.alt}
+              width={1200}
+              height={900}
+              className="object-contain w-full h-full rounded-lg"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
