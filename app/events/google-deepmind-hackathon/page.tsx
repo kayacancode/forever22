@@ -631,7 +631,7 @@ export default function GoogleDeepMindHackathon() {
         )}
       </div>
 
-      <div className="mt-6 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+      <div className="mt-6 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 items-start">
         {filteredProjects.map((project, index) => (
           <div key={index} className="flex flex-col">
             <div className="relative">
@@ -699,20 +699,20 @@ export default function GoogleDeepMindHackathon() {
               )}
             </div>
 
-            <div className={`${project.color} p-4 text-white flex-1 flex flex-col`}>
+            <div className={`${project.color} p-4 text-white flex flex-col`}>
               <h3 className="font-bold text-base font-[family-name:var(--font-mono)]">
                 {project.name}
               </h3>
               <p className="text-xs font-[family-name:var(--font-mono)] mt-1 opacity-70">
                 {project.team}
               </p>
-              <p className="text-xs font-[family-name:var(--font-mono)] mt-2 opacity-90 flex-1">
+              <p className="text-xs font-[family-name:var(--font-mono)] mt-2 opacity-90">
                 {project.description}
               </p>
 
               {/* Expanded Info */}
               {expandedProject === project.name && (
-                <div className="mt-3 pt-3 border-t border-white/30 text-xs font-[family-name:var(--font-mono)]">
+                <div className="mt-3 pt-3 border-t border-white/30 text-xs font-[family-name:var(--font-mono)] max-h-40 overflow-y-auto">
                   <p className="opacity-90 mb-2">{project.fullDescription}</p>
                   <p className="opacity-70"><strong>Gemini Usage:</strong> {project.geminiUsage}</p>
                 </div>
