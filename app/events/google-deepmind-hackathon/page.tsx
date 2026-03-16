@@ -366,8 +366,8 @@ const projects = [
     color: "bg-green-600",
     github: null,
     demo: null,
-    video: "https://drive.google.com/file/d/1zFeil6_UevthQzTFoqvu2bTX9mYquabH/view",
-    video2: "https://drive.google.com/file/d/1WndDypbl_d7WG8jqDD0PFS_0TQIHcPg8/view",
+    video: "https://drive.google.com/file/d/1_CkIuw5ffzAc3hWjBIeNxnRsJ2Z0LWZV/view",
+    video2: null,
     image: null,
   },
   {
