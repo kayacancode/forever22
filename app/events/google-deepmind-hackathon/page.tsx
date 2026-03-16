@@ -45,7 +45,7 @@ const projects = [
     github: null,
     demo: null,
     video: null,
-    image: null,
+    image: "/hackathon-screenshots/aiforall.png",
   },
   {
     name: "SUPPLYTICS",
