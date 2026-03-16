@@ -553,7 +553,7 @@ export default function GoogleDeepMindHackathon() {
         </p>
         <p>
           <span className="text-gray-700 font-medium">Judges:</span>{" "}
-          Sophie @ 2389, Yiliu @ Softspace
+          Sophie @ 2389, Rabimba @ PayPal, Yiliu @ Softspace
         </p>
         <p>
           <span className="text-gray-700 font-medium">GDEs:</span>{" "}
