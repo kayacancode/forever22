@@ -170,7 +170,7 @@ const projects = [
     color: "bg-yellow-600",
     github: null,
     demo: null,
-    video: null,
+    video: "https://drive.google.com/file/d/10M_C45yNDGcutWLTO7BkzvqexLzP3JfY/view",
     image: null,
   },
   {
