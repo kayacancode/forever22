@@ -1,54 +1,62 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
-      <p className="text-black font-light font-[family-name:var(--font-mono)] text-base tracking-wide text-center pt-8">
-        AI is a forever thing.
-      </p>
-
-      <main className="flex-1 flex items-center justify-center px-8">
-        <div className="w-fit text-center">
-          <h1
-            className="uppercase tracking-tight color-flash font-[family-name:var(--font-anton)]"
-            style={{
-              fontSize: "clamp(4rem, 20vw, 20rem)",
-              lineHeight: 1,
-            }}
+      <header className="px-4 sm:px-8 pt-8 sm:pt-16 text-center">
+        <h1
+          className="uppercase tracking-tight color-flash font-[family-name:var(--font-anton)]"
+          style={{
+            fontSize: "clamp(2.5rem, 15vw, 12rem)",
+            lineHeight: 0.9,
+          }}
+        >
+          FOREVER22
+        </h1>
+        <nav className="flex justify-center gap-4 sm:gap-8 mt-4">
+          <Link
+            href="/connect"
+            className="text-black font-[family-name:var(--font-mono)] text-base sm:text-xl tracking-wide hover:text-purple-600 transition-colors"
           >
-            FOREVER22
-          </h1>
+            Connect
+          </Link>
+          <Link
+            href="/companies"
+            className="text-black font-[family-name:var(--font-mono)] text-base sm:text-xl tracking-wide hover:text-purple-600 transition-colors"
+          >
+            Companies
+          </Link>
+          <Link
+            href="/events"
+            className="text-black font-[family-name:var(--font-mono)] text-base sm:text-xl tracking-wide hover:text-purple-600 transition-colors"
+          >
+            Events
+          </Link>
+        </nav>
+      </header>
 
-          <div className="mt-48 text-center">
-            <p className="text-black font-light font-[family-name:var(--font-mono)] text-base tracking-wide leading-relaxed mb-6">
-              We are in pursuit of building institutional intelligence systems that understand the real world.
-            </p>
-            <p className="text-black font-light font-[family-name:var(--font-mono)] text-base tracking-wide leading-relaxed mb-6">
-              AI consulting that turns your team&apos;s knowledge into institutional intelligence — systems that remember, learn, and scale with you.
-            </p>
-            <p className="text-black font-light font-[family-name:var(--font-mono)] text-base tracking-wide leading-relaxed">
-              Founded by Kaya Jones
-            </p>
-          </div>
-
-          <div className="mt-8 flex justify-center gap-16">
-            <Link
-              href="/connect"
-              className="text-black font-light font-[family-name:var(--font-mono)] text-lg tracking-wide hover:text-purple-600 transition-colors"
-            >
-              Connect
-            </Link>
-            <Link
-              href="/companies"
-              className="text-black font-light font-[family-name:var(--font-mono)] text-lg tracking-wide hover:text-purple-600 transition-colors"
-            >
-              Companies
-            </Link>
+      <main className="flex-1 flex items-center justify-center px-4 sm:px-8">
+        <div className="max-w-2xl text-center">
+          <p className="text-black font-light font-[family-name:var(--font-mono)] text-sm sm:text-base tracking-wide leading-relaxed mb-8">
+            We build institutional intelligence systems — AI that turns your team&apos;s knowledge into systems that remember, learn, and scale with you.
+          </p>
+          <p className="text-black font-light font-[family-name:var(--font-mono)] text-sm sm:text-base tracking-wide leading-relaxed">
+            Founded by Kaya Jones
+          </p>
+          <div className="mt-10 sm:mt-16 flex justify-center">
+            <Image
+              src="/forever22artlogo.png"
+              alt="Created with Institutional Intelligence"
+              width={160}
+              height={160}
+              className="sm:w-[200px] sm:h-[200px]"
+            />
           </div>
         </div>
       </main>
 
-      <footer className="py-6 px-8">
+      <footer className="py-6 px-4 sm:px-8">
         <p className="text-black text-sm font-light font-[family-name:var(--font-mono)] text-center">
           © {new Date().getFullYear()} Forever 22 LLC. All rights reserved.
         </p>
