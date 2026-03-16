@@ -531,7 +531,7 @@ export default function GoogleDeepMindHackathon() {
     : projects;
 
   return (
-    <div className="min-h-screen bg-white py-8 sm:py-16 px-6 sm:px-12 md:px-20 lg:px-32">
+    <div className="min-h-screen bg-white py-8 sm:py-16 px-8 sm:px-12 md:px-20 lg:px-32">
       <h1
         className="uppercase tracking-tight text-gray-400 font-[family-name:var(--font-anton)]"
         style={{
