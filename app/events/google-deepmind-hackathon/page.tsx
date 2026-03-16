@@ -17,6 +17,7 @@ const projects = [
     github: "https://github.com/tenkenco",
     demo: "https://tenken.co",
     video: null,
+    video2: null,
     image: "/hackathon-screenshots/tenken.png",
   },
   {
