@@ -531,7 +531,7 @@ export default function GoogleDeepMindHackathon() {
     : projects;
 
   return (
-    <div className="min-h-screen bg-white py-8 sm:py-16 px-4 sm:px-8 md:px-16 lg:px-24">
+    <div className="min-h-screen bg-white py-8 sm:py-16 px-6 sm:px-12 md:px-20 lg:px-32">
       <h1
         className="uppercase tracking-tight text-gray-400 font-[family-name:var(--font-anton)]"
         style={{
@@ -541,11 +541,11 @@ export default function GoogleDeepMindHackathon() {
       >
         GOOGLE DEEPMIND HACKATHON
       </h1>
-      <p className="text-gray-600 font-[family-name:var(--font-mono)] text-sm sm:text-base mt-4">
+      <p className="text-gray-600 font-[family-name:var(--font-mono)] text-sm sm:text-base mt-6">
         Chicago March 14th @ Drive Capital
       </p>
 
-      <div className="mt-6 sm:mt-8 text-xs sm:text-sm font-[family-name:var(--font-mono)] text-gray-500 space-y-2">
+      <div className="mt-6 sm:mt-8 p-4 sm:p-6 bg-gray-50 rounded-lg text-xs sm:text-sm font-[family-name:var(--font-mono)] text-gray-500 space-y-3">
         <p>
           <span className="text-gray-700 font-medium">Thank you to our Sponsors / Co-hosts:</span>{" "}
           Sal @ Outbound Collective, Landon @ Drive Capital, Amit and Logan @ Google DeepMind
@@ -626,7 +626,7 @@ export default function GoogleDeepMindHackathon() {
         )}
       </div>
 
-      <div className="mt-4 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      <div className="mt-6 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
         {filteredProjects.map((project, index) => (
           <div key={index} className="flex flex-col">
             <div className="relative">
