@@ -546,14 +546,18 @@ export default function GoogleDeepMindHackathon() {
         Chicago March 14th @ Drive Capital
       </p>
 
-      <div className="mt-6 sm:mt-8 p-4 sm:p-6 bg-gray-50 rounded-lg text-xs sm:text-sm font-[family-name:var(--font-mono)] text-gray-500 space-y-3">
+      <div className="mt-6 sm:mt-8 p-4 sm:p-6 bg-gray-50 rounded-lg text-xs sm:text-sm font-[family-name:var(--font-mono)] text-gray-500 space-y-2">
         <p>
-          <span className="text-gray-700 font-medium">Thank you to our Sponsors / Co-hosts:</span>{" "}
-          Sal @ Outbound Collective, Landon @ Drive Capital, Amit and Logan @ Google DeepMind
+          <span className="text-gray-700 font-medium">Co-hosts:</span>{" "}
+          Sal @ Outbound Collective, Landon @ Drive Capital, Amit and Logan @ Google DeepMind, Forever22
         </p>
         <p>
-          <span className="text-gray-700 font-medium">Thank you to our Judges:</span>{" "}
-          Sophie @ 2389, Rabimba @ PayPal, Yiliu @ Softspace
+          <span className="text-gray-700 font-medium">Judges:</span>{" "}
+          Sophie @ 2389, Yiliu @ Softspace
+        </p>
+        <p>
+          <span className="text-gray-700 font-medium">GDEs:</span>{" "}
+          Rabimba, JC
         </p>
       </div>
 
