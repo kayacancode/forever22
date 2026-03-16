@@ -31,7 +31,7 @@ const projects = [
     github: null,
     demo: null,
     video: null,
-    image: null,
+    image: "/hackathon-screenshots/ownit.png",
   },
   {
     name: "AIFORALL",
