@@ -101,7 +101,7 @@ const projects = [
     github: null,
     demo: null,
     video: null,
-    image: null,
+    image: "/hackathon-screenshots/lets-jam.png",
   },
   {
     name: "MOONSTRUCK",
