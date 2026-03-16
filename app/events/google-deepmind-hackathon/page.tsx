@@ -200,7 +200,7 @@ const projects: Project[] = [
     complexity: 4,
     color: "bg-pink-400",
     github: null,
-    demo: "https://chi-paws.vercel.app",
+    demo: "https://chi-paws-red.vercel.app/",
     video: null,
     image: "/hackathon-screenshots/chipaws.png",
   },
@@ -685,6 +685,27 @@ export default function GoogleDeepMindHackathon() {
                       <div className="w-12 h-12 bg-black/70 rounded-full flex items-center justify-center">
                         <svg className="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M8 5v14l11-7z"/>
+                        </svg>
+                      </div>
+                    </div>
+                  </a>
+                ) : project.demo ? (
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="aspect-[4/3] bg-gray-100 border border-gray-200 relative group cursor-pointer overflow-hidden block w-full"
+                  >
+                    <Image
+                      src={project.image}
+                      alt={project.name}
+                      fill
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center">
+                        <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>
                       </div>
                     </div>
