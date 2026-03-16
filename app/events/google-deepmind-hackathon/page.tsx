@@ -269,7 +269,7 @@ const projects = [
     color: "bg-lime-500",
     github: "https://github.com/RifatXia/deepmind-hackathon",
     demo: "https://deepmind-hackathon-psi.vercel.app/",
-    video: null,
+    video: "https://youtu.be/GKJMGiD-pHo?si=LTSINMemkaRwFJru",
     image: "/hackathon-screenshots/chiquest.png",
   },
   {
