@@ -714,8 +714,7 @@ export default function GoogleDeepMindHackathon() {
               {expandedProject === project.name && (
                 <div className="mt-3 pt-3 border-t border-white/30 text-xs font-[family-name:var(--font-mono)]">
                   <p className="opacity-90 mb-2">{project.fullDescription}</p>
-                  <p className="opacity-70 mb-2"><strong>Gemini Usage:</strong> {project.geminiUsage}</p>
-                  <p className="opacity-70"><strong>Complexity:</strong> {"★".repeat(project.complexity)}{"☆".repeat(5 - project.complexity)}</p>
+                  <p className="opacity-70"><strong>Gemini Usage:</strong> {project.geminiUsage}</p>
                 </div>
               )}
 
