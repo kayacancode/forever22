@@ -57,9 +57,9 @@ const projects = [
     complexity: 3,
     color: "bg-purple-500",
     github: null,
-    demo: null,
+    demo: "https://genai-app-supplyticsmarketplace-1-1773517596460-309675312802.us-central1.run.app/?key=5rdOnaCzDNUYd2i6cIgehBdnEVO8lAXg",
     video: null,
-    image: null,
+    image: "/hackathon-screenshots/supplytics.png",
   },
   {
     name: "I HEAR YOU",
