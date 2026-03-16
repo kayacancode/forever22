@@ -47,7 +47,7 @@ const projects: Project[] = [
     color: "bg-pink-500",
     github: null,
     demo: null,
-    video: null,
+    video: "https://drive.google.com/file/d/1W2dC-kTGTfhx9Rvynv-eJ1QlM6MPr63Z/view?usp=sharing",
     image: "/hackathon-screenshots/ownit.png",
   },
   {
