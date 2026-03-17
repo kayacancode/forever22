@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: "Forever 22 - AI is a forever thing.",
   description: "We build institutional intelligence systems — AI that turns your team's knowledge into systems that remember, learn, and scale with you.",
   icons: {
-    icon: "/favicon.svg",
+    icon: "/logo-stamp.png",
   },
   openGraph: {
     title: "Forever 22 - AI is a forever thing.",
