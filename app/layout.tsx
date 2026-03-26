@@ -14,6 +14,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://forever22.com"),
   title: "Forever 22 - AI is a forever thing.",
   description: "We build institutional intelligence systems — AI that turns your team's knowledge into systems that remember, learn, and scale with you.",
   icons: {
