@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Anton, JetBrains_Mono } from "next/font/google";
+import { Anton, JetBrains_Mono, VT323 } from "next/font/google";
 import "./globals.css";
 
 const anton = Anton({
@@ -11,6 +11,12 @@ const anton = Anton({
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
+});
+
+const vt323 = VT323({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-pixel",
 });
 
 export const metadata: Metadata = {
@@ -48,7 +54,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${anton.variable} ${jetbrainsMono.variable} antialiased`}>
+      <body className={`${anton.variable} ${jetbrainsMono.variable} ${vt323.variable} antialiased`}>
         {children}
       </body>
     </html>
