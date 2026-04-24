@@ -15,10 +15,10 @@ export default function Connect() {
             Kaya
           </a>
           <a
-            href="mailto:kaya@forever22studios.com"
+            href="mailto:kaya@forever22.com"
             className="text-blue-500 text-lg hover:opacity-70 transition-opacity"
           >
-            kaya@forever22studios.com
+            kaya@forever22.com
           </a>
         </div>
       </main>

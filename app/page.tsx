@@ -518,7 +518,7 @@ export default function Home() {
               @forever22studio
             </a>
             <a
-              href="mailto:kaya@forever22studios.com"
+              href="mailto:kaya@forever22.com"
               className="retro-link font-[family-name:var(--font-mono)] text-[10px] sm:text-xs"
             >
               email
