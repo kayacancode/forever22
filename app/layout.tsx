@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Anton, JetBrains_Mono, VT323 } from "next/font/google";
+import { Anton, JetBrains_Mono, VT323, Permanent_Marker } from "next/font/google";
 import "./globals.css";
 
 const anton = Anton({
@@ -17,6 +17,12 @@ const vt323 = VT323({
   weight: "400",
   subsets: ["latin"],
   variable: "--font-pixel",
+});
+
+const permanentMarker = Permanent_Marker({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-marker",
 });
 
 export const metadata: Metadata = {
@@ -54,7 +60,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${anton.variable} ${jetbrainsMono.variable} ${vt323.variable} antialiased`}>
+      <body className={`${anton.variable} ${jetbrainsMono.variable} ${vt323.variable} ${permanentMarker.variable} antialiased`}>
         {children}
       </body>
     </html>

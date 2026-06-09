@@ -1,11 +1,5 @@
 @import "tailwindcss";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 :root {
   --konbini-black: #1a1a1a;
   --konbini-yellow: #f5e642;
@@ -17,8 +11,34 @@
 
 body {
   font-family: var(--font-anton), sans-serif;
-  background: var(--konbini-cream);
+  background: #ffffff;
   color: var(--konbini-black);
+}
+
+/* Hairline separator — calmer than the dashed double-borders */
+.hairline {
+  border-color: rgba(26, 26, 26, 0.12);
+}
+
+/* === Editorial / zine system (Good Vibes Kyoto inspired) === */
+
+/* Hand-drawn marker scrawl accent */
+.scrawl {
+  font-family: var(--font-marker), cursive;
+  line-height: 0.95;
+}
+
+/* Editorial micro-annotation label */
+.anno {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Pointing-hand list (☞) */
+.point::before {
+  content: "☞ ";
 }
 
 /* === 90s Web Aesthetics === */

@@ -27,7 +27,13 @@ export default function Events() {
         </Link>
       </nav>
 
-      <div className="mt-10 sm:mt-16">
+      <div className="mt-10 sm:mt-16 flex flex-col gap-4 sm:gap-6">
+        <Link
+          href="/events/multimodal-hacks"
+          className="text-black font-[family-name:var(--font-mono)] text-lg sm:text-2xl tracking-wide hover:text-gray-500 transition-colors"
+        >
+          Multimodal Hacks — NY Tech Week
+        </Link>
         <Link
           href="/events/google-deepmind-hackathon"
           className="text-black font-[family-name:var(--font-mono)] text-lg sm:text-2xl tracking-wide hover:text-gray-500 transition-colors"
