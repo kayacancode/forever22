@@ -440,6 +440,37 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ═══ LOOKING FOR A PARTNER ═══ */}
+      <section style={{ background: "var(--konbini-green)" }} className="text-white">
+        <div className="max-w-[1300px] mx-auto px-6 sm:px-10 lg:px-16 py-20 sm:py-28">
+          <div className="anno text-white/70 mb-5">[ for companies ]</div>
+          <div className="flex items-baseline gap-3 mb-7 flex-wrap">
+            <h2 className="font-[family-name:var(--font-anton)] text-3xl sm:text-5xl uppercase">
+              Looking for a partner?
+            </h2>
+            <span className="scrawl text-[var(--konbini-yellow)] text-2xl sm:text-4xl -rotate-3">
+              let&apos;s talk
+            </span>
+          </div>
+          <p className="font-[family-name:var(--font-mono)] text-sm sm:text-base leading-relaxed text-white/90 max-w-3xl">
+            Forever 22 partners with AI-native companies and enterprises to put
+            their products directly in the hands of the developers and builders
+            shipping real solutions. Whether that&apos;s a hackathon that gets
+            your tools into hundreds of hands, a focused builder program, or an
+            enterprise sprint that points top AI talent at your hardest problem —
+            we connect your product with the people building on it.
+          </p>
+          <div className="mt-8">
+            <Link
+              href="/connect"
+              className="inline-block font-[family-name:var(--font-pixel)] text-base sm:text-lg px-5 py-2.5 bg-[var(--konbini-yellow)] text-black border-2 border-black hover:bg-white transition-colors"
+            >
+              → PARTNER WITH US
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ═══ CTA ═══ */}
       <section className="max-w-[1300px] mx-auto px-6 sm:px-10 lg:px-16 py-20 sm:py-32">
         <span className="scrawl text-[var(--konbini-red)] text-3xl sm:text-5xl -rotate-2 mb-4 inline-block">
