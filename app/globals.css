@@ -169,3 +169,59 @@ a.retro-link:hover {
   display: inline-block;
   letter-spacing: 2px;
 }
+
+/* Pitch deck light mode */
+.pitch-deck {
+  scroll-behavior: smooth;
+}
+
+.pitch-deck section:nth-of-type(4n + 2) {
+  background: color-mix(in srgb, var(--konbini-green) 7%, white);
+}
+
+.pitch-deck section:nth-of-type(4n) {
+  background: color-mix(in srgb, var(--konbini-red) 6%, white);
+}
+
+.pitch-deck .bg-black {
+  background-color: #fff;
+}
+
+.pitch-deck .bg-white\/10 {
+  background-color: rgba(26, 26, 26, 0.12);
+}
+
+.pitch-deck .border-white\/10,
+.pitch-deck .border-white\/25 {
+  border-color: rgba(26, 26, 26, 0.14);
+}
+
+.pitch-deck .text-white,
+.pitch-deck .text-white\/85 {
+  color: rgba(26, 26, 26, 0.86);
+}
+
+.pitch-deck .text-white\/80,
+.pitch-deck .text-white\/75 {
+  color: rgba(26, 26, 26, 0.78);
+}
+
+.pitch-deck .text-white\/70,
+.pitch-deck .text-white\/65 {
+  color: rgba(26, 26, 26, 0.68);
+}
+
+.pitch-deck .text-white\/60,
+.pitch-deck .text-white\/55 {
+  color: rgba(26, 26, 26, 0.58);
+}
+
+.pitch-deck .text-white\/50,
+.pitch-deck .text-white\/40 {
+  color: rgba(26, 26, 26, 0.48);
+}
+
+.pitch-deck .text-white\/25,
+.pitch-deck .text-white\/20 {
+  color: rgba(26, 26, 26, 0.24);
+}
