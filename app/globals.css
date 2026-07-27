@@ -3,6 +3,7 @@
 :root {
   --konbini-black: #1a1a1a;
   --konbini-yellow: #f5e642;
+  --konbini-yellow-ink: #8a7a00; /* readable gold for yellow TEXT on light bg */
   --konbini-red: #e63322;
   --konbini-green: #2d8c3c;
   --konbini-cream: #f0ede4;
@@ -224,4 +225,10 @@ a.retro-link:hover {
 .pitch-deck .text-white\/25,
 .pitch-deck .text-white\/20 {
   color: rgba(26, 26, 26, 0.24);
+}
+
+/* Bright yellow text is unreadable on the light deck — remap it to gold ink.
+   Yellow backgrounds (highlight boxes, buttons, marquee) stay bright. */
+.pitch-deck .text-\[var\(--konbini-yellow\)\] {
+  color: var(--konbini-yellow-ink);
 }

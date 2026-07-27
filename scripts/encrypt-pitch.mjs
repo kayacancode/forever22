@@ -1,4 +1,4 @@
-// Post-build step: encrypt the exported /pitch page so its content is only
+// Post-build step: encrypt the exported pitch pages so their content is only
 // readable after entering the password. Runs after `next build` (static export).
 //
 // The password can be set via the PITCH_PASSWORD env var, otherwise it falls
@@ -13,10 +13,16 @@ import { existsSync } from "node:fs";
 import { webcrypto } from "node:crypto";
 import path from "node:path";
 
-const PASSWORD = process.env.PITCH_PASSWORD || "forever22";
+const PASSWORD = process.env.PITCH_PASSWORD || "2389.ai";
 
 const OUT = path.resolve(process.cwd(), "out");
-const PAGE = path.join(OUT, "pitch.html");
+
+// Every protected page: route (relative to out/, no extension), the heading
+// shown on the password gate, and a distinct sessionStorage key.
+const PAGES = [
+  { route: "pitch", heading: "The Deck", storageKey: "f22_pitch" },
+  { route: "pitch/google-deepmind", heading: "Forever 22 × Google DeepMind", storageKey: "f22_pitch_gdm" },
+];
 
 const { subtle } = webcrypto;
 const enc = new TextEncoder();
@@ -34,13 +40,14 @@ async function deriveKey(password, salt) {
 
 const b64 = (buf) => Buffer.from(buf).toString("base64");
 
-async function main() {
-  if (!existsSync(PAGE)) {
-    console.error(`[encrypt-pitch] ${PAGE} not found — did the export run?`);
+async function encryptPage({ route, heading, storageKey }) {
+  const pagePath = path.join(OUT, `${route}.html`);
+  if (!existsSync(pagePath)) {
+    console.error(`[encrypt-pitch] ${pagePath} not found — did the export run?`);
     process.exit(1);
   }
 
-  const html = await readFile(PAGE, "utf8");
+  const html = await readFile(pagePath, "utf8");
 
   const bodyClass = (html.match(/<body[^>]*class="([^"]*)"/) || [])[1] || "";
   const styleLinks = (html.match(/<link[^>]+rel="stylesheet"[^>]*>/g) || []).join("");
@@ -61,21 +68,27 @@ async function main() {
     ct: b64(new Uint8Array(ciphertext)),
   };
 
-  await writeFile(PAGE, decryptorPage(payload), "utf8");
+  await writeFile(pagePath, decryptorPage(payload, { heading, storageKey }), "utf8");
 
   // Remove the RSC payloads — they also contain the (plaintext) deck content.
-  await rm(path.join(OUT, "pitch.txt"), { force: true });
-  const pitchDir = path.join(OUT, "pitch");
-  if (existsSync(pitchDir)) {
-    for (const f of await readdir(pitchDir)) {
-      if (f.endsWith(".txt")) await rm(path.join(pitchDir, f), { force: true });
+  await rm(path.join(OUT, `${route}.txt`), { force: true });
+  const routeDir = path.join(OUT, route);
+  if (existsSync(routeDir)) {
+    for (const f of await readdir(routeDir)) {
+      if (f.endsWith(".txt")) await rm(path.join(routeDir, f), { force: true });
     }
   }
 
-  console.log(`[encrypt-pitch] encrypted out/pitch.html (${(JSON.stringify(payload).length / 1024).toFixed(0)} KB ciphertext) and removed RSC leaks.`);
+  console.log(`[encrypt-pitch] encrypted out/${route}.html (${(JSON.stringify(payload).length / 1024).toFixed(0)} KB ciphertext) and removed RSC leaks.`);
 }
 
-function decryptorPage({ salt, iv, ct }) {
+async function main() {
+  for (const page of PAGES) {
+    await encryptPage(page);
+  }
+}
+
+function decryptorPage({ salt, iv, ct }, { heading, storageKey }) {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -109,7 +122,7 @@ function decryptorPage({ salt, iv, ct }) {
   <div class="card">
     <div class="stamp"><img src="/logo-stamp.png" alt=""/><span class="wm">FOREVER22</span></div>
     <div class="kick">● Confidential</div>
-    <h1>The Deck</h1>
+    <h1>${heading}</h1>
     <p class="sub">This pitch deck is password protected. Enter the password to continue.</p>
     <form id="f">
       <input id="pw" type="password" autocomplete="current-password" placeholder="password" autofocus/>
@@ -122,6 +135,7 @@ function decryptorPage({ salt, iv, ct }) {
 <script>
 (function(){
   var DATA={salt:"${salt}",iv:"${iv}",ct:"${ct}"};
+  var KEY="${storageKey}";
   function b2a(b64){var s=atob(b64),a=new Uint8Array(s.length);for(var i=0;i<s.length;i++)a[i]=s.charCodeAt(i);return a;}
   function deriveKey(pw,salt){
     return crypto.subtle.importKey("raw",new TextEncoder().encode(pw),"PBKDF2",false,["deriveKey"]).then(function(k){
@@ -137,7 +151,7 @@ function decryptorPage({ salt, iv, ct }) {
       document.head.insertAdjacentHTML("beforeend",data.styleLinks);
       document.body.className=data.bodyClass;
       document.body.innerHTML=data.content;
-      try{sessionStorage.setItem("f22_pitch",pw);}catch(e){}
+      try{sessionStorage.setItem(KEY,pw);}catch(e){}
       window.scrollTo(0,0);
     });
   }
@@ -146,7 +160,7 @@ function decryptorPage({ salt, iv, ct }) {
     e.preventDefault();err.textContent="";
     unlock(pw.value).catch(function(){err.textContent="Wrong password. Try again.";pw.value="";pw.focus();});
   });
-  try{var saved=sessionStorage.getItem("f22_pitch");if(saved){unlock(saved).catch(function(){sessionStorage.removeItem("f22_pitch");});}}catch(e){}
+  try{var saved=sessionStorage.getItem(KEY);if(saved){unlock(saved).catch(function(){sessionStorage.removeItem(KEY);});}}catch(e){}
 })();
 </script>
 </body>

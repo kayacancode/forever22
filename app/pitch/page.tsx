@@ -15,11 +15,14 @@ const NEON = {
   blue: "var(--konbini-blue)",
 };
 
+/* Yellow accents used as TEXT need the darker ink to stay readable on white. */
+const INK = "var(--konbini-yellow-ink)";
+
 const TOTAL = 20;
 
 /* ───────────────────────── shared bits ───────────────────────── */
 
-function Counter({ n, accent = NEON.yellow }: { n: number; accent?: string }) {
+function Counter({ n, accent = INK }: { n: number; accent?: string }) {
   return (
     <span className="font-[family-name:var(--font-pixel)] text-sm tracking-widest tabular-nums">
       <span style={{ color: accent }}>
@@ -50,7 +53,7 @@ function Highlight({ children }: { children: React.ReactNode }) {
   return (
     <div
       className="mt-8 border-2 border-black p-5 sm:p-6 font-[family-name:var(--font-mono)] text-sm sm:text-base leading-relaxed text-black"
-      style={{ background: NEON.yellow }}
+      style={{ background: "var(--konbini-yellow)" }}
     >
       {children}
     </div>
@@ -65,7 +68,7 @@ type SlideProps = {
 };
 
 /* One full slide. Light by default, with color used as the accent system. */
-function Slide({ n, inverted = false, accent = NEON.yellow, children }: SlideProps) {
+function Slide({ n, inverted = false, accent = INK, children }: SlideProps) {
   return (
     <section
       className="relative snap-start bg-white text-black border-b-2 border-black/10"
@@ -232,7 +235,7 @@ export default function Pitch() {
             "It answers for you — and pings you when it's unsure.",
           ].map((step, i) => (
             <div key={i} className="bg-black p-6">
-              <span className="font-[family-name:var(--font-anton)] text-4xl" style={{ color: NEON.yellow }}>
+              <span className="font-[family-name:var(--font-anton)] text-4xl" style={{ color: INK }}>
                 {String(i + 1).padStart(2, "0")}
               </span>
               <p className="mt-3 font-[family-name:var(--font-mono)] text-xs sm:text-sm leading-relaxed text-white/75">
@@ -291,16 +294,16 @@ export default function Pitch() {
         <Kicker accent={NEON.blue}>Why now</Kicker>
         <H>Tools ship faster than anyone can try them</H>
         <p className="mt-7 font-[family-name:var(--font-mono)] text-sm sm:text-lg leading-relaxed max-w-2xl text-white/80">
-          The bottleneck isn&apos;t awareness — it&apos;s getting hands on. New
-          APIs drop back-to-back, but most builders only ever read about them. An
-          IRL hackathon is the fastest way to turn that into trial, opinion, and
-          adoption.
+          The bottleneck is awareness — and getting tools hands-on to actual
+          consumers. New models ship back-to-back, but most builders only ever
+          read about them. An IRL hackathon is the fastest way to turn that into
+          trial, opinion, and adoption.
         </p>
         <div className="mt-12 space-y-5">
           {[
             {
-              t: "Tools outrun attention",
-              b: "APIs and agents ship back-to-back. Most builders form an opinion from a headline, never having touched the product — so perception sets before a single try.",
+              t: "Models outrun attention",
+              b: "New models ship back-to-back. Most builders form an opinion from a headline, never having touched the product — so perception sets before a single try.",
             },
             {
               t: "Hands-on flips perception",
@@ -308,7 +311,7 @@ export default function Pitch() {
             },
             {
               t: "And the winners mint companies",
-              b: "YC now runs hackathons every weekend because real businesses form in a day. Nothing like it exists on the East Coast — that's Forever 22's niche.",
+              b: "YC now runs hackathons every weekend, and Founders Inc packs 85 teams into five-hour night hacks at Fort Mason — live demos only — because real businesses form in a day. Nothing like it exists on the East Coast — that's Forever 22's niche.",
             },
           ].map((p, i) => (
             <div key={i} className="flex gap-5 border-b border-white/10 pb-5">
@@ -333,10 +336,10 @@ export default function Pitch() {
         </p>
         <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-px bg-white/10 border border-white/10">
           {[
-            ["500+", "registrants"],
-            ["80", "invited"],
-            ["24", "projects"],
-            ["5", "winners"],
+            ["2", "hackathons"],
+            ["1,000+", "registrants"],
+            ["160", "builders in the room"],
+            ["59", "projects shipped"],
           ].map(([num, label]) => (
             <div key={label} className="bg-black p-6 text-center">
               <div className="font-[family-name:var(--font-anton)] text-4xl sm:text-5xl text-[var(--konbini-yellow)]">{num}</div>
@@ -344,10 +347,18 @@ export default function Pitch() {
             </div>
           ))}
         </div>
-        <p className="mt-7 font-[family-name:var(--font-mono)] text-xs sm:text-sm text-white/55 leading-relaxed max-w-2xl">
-          Multimodal Hacks · NY Tech Week — hosted at Betaworks, backed by Google
-          for Developers, DeepMind, Pinecone, LangChain, Cursor, Clerk, Sendblue.
-        </p>
+        <div className="mt-7 space-y-3 font-[family-name:var(--font-mono)] text-xs sm:text-sm text-white/55 leading-relaxed max-w-2xl">
+          <p>
+            Google DeepMind Hackathon · Chicago, March — hosted at Drive Capital
+            with Google DeepMind and Outbound Collective. 500+ registered, 80 in
+            the room, 35 projects shipped.
+          </p>
+          <p>
+            Multimodal Hacks · NY Tech Week — hosted at Betaworks, backed by
+            Google for Developers, DeepMind, Pinecone, LangChain, Cursor, Clerk,
+            Sendblue. 500+ registered, 80 invited, 24 projects, 5 winners.
+          </p>
+        </div>
       </Slide>
 
       {/* ═══ 7 · COMMUNITY ═══ */}
@@ -425,8 +436,8 @@ export default function Pitch() {
       </Slide>
 
       {/* ═══ 9 · IRL IS THE MOAT ═══ */}
-      <Slide n={9} accent={NEON.yellow}>
-        <Kicker accent={NEON.yellow}>The edge</Kicker>
+      <Slide n={9} accent={INK}>
+        <Kicker accent={INK}>The edge</Kicker>
         <H size="clamp(3rem, 11vw, 8rem)">
           IRL IS THE <span className="text-[var(--konbini-yellow)]">MOAT</span>
         </H>
@@ -514,7 +525,7 @@ export default function Pitch() {
             ["05", "Portfolio", "F22 equity sliver"],
           ].map(([n, t, sub]) => (
             <div key={n} className="bg-black p-5">
-              <span className="font-[family-name:var(--font-pixel)] text-base" style={{ color: NEON.yellow }}>{n}</span>
+              <span className="font-[family-name:var(--font-pixel)] text-base" style={{ color: INK }}>{n}</span>
               <h3 className="mt-1 font-[family-name:var(--font-anton)] text-lg sm:text-xl uppercase leading-none">{t}</h3>
               {sub && <p className="mt-2 font-[family-name:var(--font-mono)] text-[11px] text-white/60 leading-relaxed">{sub}</p>}
             </div>
@@ -569,7 +580,7 @@ export default function Pitch() {
             },
             {
               t: "We take",
-              accent: NEON.yellow,
+              accent: INK,
               items: [
                 "a small equity sliver, opt-in only",
                 "vested across the program",
@@ -602,7 +613,7 @@ export default function Pitch() {
             { t: "Credits & compute", b: "Google for Developers, DeepMind, Pinecone, LangChain, Cursor, Clerk, Sendblue.", accent: NEON.green },
             { t: "Eng support", b: "Filament eng team on skills and agent config, plus interns.", accent: NEON.red },
             { t: "Mentorship", b: "Kaya on context and agents, plus operator advisors.", accent: NEON.blue },
-            { t: "Network & distribution", b: "The Kaya Jones brand, the Betaworks platform, exec and media intros.", accent: NEON.yellow },
+            { t: "Network & distribution", b: "The Kaya Jones brand, the Betaworks platform, exec and media intros.", accent: INK },
             { t: "Capital path", b: "A warm feeder into Betaworks, Factorial, Drive Capital and Google for Startups.", accent: NEON.green },
           ].map((c) => (
             <div key={c.t} className="bg-black p-5 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-2 sm:gap-6">
@@ -746,7 +757,7 @@ export default function Pitch() {
             { when: "Late Jun", t: "Foundation", b: "send Amit proposal · winners community (Circle or Slack) · resources hub", accent: NEON.green },
             { when: "Jul", t: "The Network", b: "talent profiles + matching · soft-launch to Multimodal pool · partner pricing · first partner matches", accent: NEON.red },
             { when: "Jul–Aug", t: "Program", b: "Phase 1 kickoff · skills library + mentorship", accent: NEON.blue },
-            { when: "Aug", t: "Next hackathon", b: "co-design with Google PMs · open registrations · run the weekend · demo day + intake", accent: NEON.yellow },
+            { when: "Aug", t: "Next hackathon", b: "co-design with Google PMs · open registrations · run the weekend · demo day + intake", accent: INK },
             { when: "Late Aug", t: "Wrap", b: "network + revenue metrics · Phase 2 fund conversation", accent: NEON.green },
           ].map((c) => (
             <div key={c.t} className="bg-black p-5 grid grid-cols-1 sm:grid-cols-[120px_180px_1fr] gap-1 sm:gap-5 items-baseline">
@@ -760,7 +771,7 @@ export default function Pitch() {
 
       {/* ═══ 21 · CLOSE ═══ */}
       <Slide n={20} accent={NEON.green}>
-        <Kicker accent={NEON.yellow}>Where we&apos;re going</Kicker>
+        <Kicker accent={INK}>Where we&apos;re going</Kicker>
         <span className="scrawl text-[var(--konbini-yellow)] text-3xl sm:text-5xl -rotate-2 mb-4 inline-block">
           let&apos;s build
         </span>
@@ -814,7 +825,7 @@ export default function Pitch() {
 function ActMarquee({ text }: { text: string }) {
   const items = [text, "✦", "FOREVER 22", "★", text, "◆", "FOREVER 22", "●"];
   return (
-    <div className="border-y-2 border-black overflow-hidden py-3" style={{ background: NEON.yellow }}>
+    <div className="border-y-2 border-black overflow-hidden py-3" style={{ background: "var(--konbini-yellow)" }}>
       <div className="marquee-track whitespace-nowrap flex items-center" style={{ width: "max-content" }}>
         {[...items, ...items].map((item, i) => (
           <span
