@@ -18,7 +18,7 @@ const NEON = {
 /* Yellow accents used as TEXT need the darker ink to stay readable on white. */
 const INK = "var(--konbini-yellow-ink)";
 
-const TOTAL = 13;
+const TOTAL = 14;
 
 /* ───────────────────────── shared bits ───────────────────────── */
 
@@ -118,7 +118,7 @@ function FieldRows({ rows }: { rows: [string, string][] }) {
 
 export default function DeepMindPitch() {
   return (
-    <div className="pitch-deck h-screen overflow-y-auto snap-y snap-mandatory bg-white text-black selection:bg-[var(--konbini-yellow)] selection:text-black">
+    <div className="pitch-deck h-screen overflow-y-auto md:snap-y md:snap-mandatory bg-white text-black selection:bg-[var(--konbini-yellow)] selection:text-black">
       {/* nav */}
       <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b-2 border-black/10">
         <div className="max-w-[1100px] mx-auto flex items-center justify-between px-6 sm:px-10 lg:px-14 py-3.5">
@@ -222,8 +222,52 @@ export default function DeepMindPitch() {
         </div>
       </Slide>
 
-      {/* ═══ 3 · THE SHAPE ═══ */}
-      <Slide n={3} accent={NEON.red}>
+      {/* ═══ 3 · WHY KAYA ═══ */}
+      <Slide n={3} accent={NEON.blue}>
+        <Kicker accent={NEON.blue}>Why Kaya</Kicker>
+        <H>Why I&apos;m the one to build these four</H>
+        <p className="mt-7 font-[family-name:var(--font-mono)] text-sm sm:text-base leading-relaxed max-w-2xl text-white/80">
+          The numbers behind us say the format works. The reason to run four
+          more with me is what each of these rooms actually requires.
+        </p>
+        <div className="mt-10 space-y-px bg-white/10 border border-white/10">
+          {[
+            {
+              t: "Computer Use Hacks",
+              b: "I've run this format with this product twice. The invite funnel, the alumni list, and the working relationship with the Gemini team already exist — event one starts warm, not cold.",
+              accent: NEON.green,
+            },
+            {
+              t: "Build for Business",
+              b: "Forever 22 is an applied AI lab, not an events agency. I ship on these tools myself, which is what it takes to translate between an SMB owner's real problem and a builder's weekend.",
+              accent: NEON.blue,
+            },
+            {
+              t: "Agents at Work",
+              b: "The draw is the VC panel, and it comes from rooms I've already run — Chicago at Drive Capital's office, June at Betaworks. I've put builders in front of capital at every event so far.",
+              accent: NEON.red,
+            },
+            {
+              t: "Creator Track",
+              b: "A non-engineer room lives or dies on who's in it, and curation is the core of my format: 500-plus registrants cut to the 80 who belong there, twice now.",
+              accent: INK,
+            },
+          ].map((c) => (
+            <div key={c.t} className="bg-black p-5 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-2 sm:gap-6">
+              <h3 className="font-[family-name:var(--font-anton)] text-lg sm:text-xl uppercase" style={{ color: c.accent }}>{c.t}</h3>
+              <p className="font-[family-name:var(--font-mono)] text-xs sm:text-sm text-white/70 leading-relaxed">{c.b}</p>
+            </div>
+          ))}
+        </div>
+        <Highlight>
+          One operator across all four means nothing resets: the alumni return,
+          the partners carry forward, and your product feedback compounds from
+          event to event.
+        </Highlight>
+      </Slide>
+
+      {/* ═══ 4 · THE SHAPE ═══ */}
+      <Slide n={4} accent={NEON.red}>
         <Kicker accent={NEON.red}>The shape</Kicker>
         <H>A six-month cadence, not another one-off</H>
         <p className="mt-7 font-[family-name:var(--font-mono)] text-sm sm:text-lg leading-relaxed max-w-2xl text-white/80">
@@ -260,8 +304,8 @@ export default function DeepMindPitch() {
         </Highlight>
       </Slide>
 
-      {/* ═══ 4 · THE REACH ARGUMENT ═══ */}
-      <Slide n={4} accent={NEON.blue}>
+      {/* ═══ 5 · THE REACH ARGUMENT ═══ */}
+      <Slide n={5} accent={NEON.blue}>
         <Kicker accent={NEON.blue}>The reach argument</Kicker>
         <H>Five channels, five different rooms</H>
         <p className="mt-7 font-[family-name:var(--font-mono)] text-sm sm:text-base leading-relaxed max-w-2xl text-white/80">
@@ -294,8 +338,8 @@ export default function DeepMindPitch() {
         </Highlight>
       </Slide>
 
-      {/* ═══ 5 · PARTNERS ═══ */}
-      <Slide n={5} accent={NEON.green}>
+      {/* ═══ 6 · PARTNERS ═══ */}
+      <Slide n={6} accent={NEON.green}>
         <Kicker accent={NEON.green}>Partners we would activate</Kicker>
         <H>Confirmed base, targeted reach</H>
         <p className="mt-6 font-[family-name:var(--font-mono)] text-xs sm:text-sm leading-relaxed max-w-2xl text-white/60">
@@ -323,8 +367,8 @@ export default function DeepMindPitch() {
       {/* ═══ act divider ═══ */}
       <ActMarquee text="THE FOUR EVENTS" />
 
-      {/* ═══ 6 · EVENT 1 ═══ */}
-      <Slide n={6} accent={NEON.green}>
+      {/* ═══ 7 · EVENT 1 ═══ */}
+      <Slide n={7} accent={NEON.green}>
         <Kicker accent={NEON.green}>Event 1 · August 2026</Kicker>
         <H size="clamp(2.5rem, 9vw, 7rem)">
           Computer <span className="text-[var(--konbini-green)]">Use Hacks</span>
@@ -333,7 +377,7 @@ export default function DeepMindPitch() {
           rows={[
             ["Theme", "Computer use — agents that see the screen, click, and act."],
             ["Google surface", "Gemini computer use, PMs co-designing from the start."],
-            ["Partners", "Betaworks (host) — or a partner office like Datadog's NYC space."],
+            ["Sample partners", "Betaworks (host) — or a partner office like Datadog's NYC space."],
             ["Who comes", "NYC AI builders, Multimodal Hacks alumni."],
             ["Size & vibe", "~80 invited, intimate, submission-first."],
           ]}
@@ -344,8 +388,8 @@ export default function DeepMindPitch() {
         </Highlight>
       </Slide>
 
-      {/* ═══ 7 · EVENT 2 ═══ */}
-      <Slide n={7} accent={NEON.blue}>
+      {/* ═══ 8 · EVENT 2 ═══ */}
+      <Slide n={8} accent={NEON.blue}>
         <Kicker accent={NEON.blue}>Event 2 · October 2026</Kicker>
         <H size="clamp(2.5rem, 9vw, 7rem)">
           Build for <span className="text-[var(--konbini-blue)]">Business</span>
@@ -354,7 +398,7 @@ export default function DeepMindPitch() {
           rows={[
             ["Theme", "Your idea from June. Small business owners bring real problems, builders ship solutions, aim for signed SOWs by the end of the weekend."],
             ["Google surface", "Gemini for practical business use, low-cost multi-model builds."],
-            ["Partners", "NSBE and local business and professional orgs (targets), one accelerator."],
+            ["Sample partners", "NSBE and local business and professional orgs, one accelerator."],
             ["Who comes", "Builders on one side, SMB owners on the other."],
             ["Size & vibe", "~60 to 80, smaller and more matched, two-sided."],
           ]}
@@ -366,8 +410,8 @@ export default function DeepMindPitch() {
         </Highlight>
       </Slide>
 
-      {/* ═══ 8 · EVENT 3 ═══ */}
-      <Slide n={8} accent={NEON.red}>
+      {/* ═══ 9 · EVENT 3 ═══ */}
+      <Slide n={9} accent={NEON.red}>
         <Kicker accent={NEON.red}>Event 3 · November 2026</Kicker>
         <H size="clamp(2.5rem, 9vw, 7rem)">
           Agents <span className="text-[var(--konbini-red)]">at Work</span>
@@ -376,7 +420,7 @@ export default function DeepMindPitch() {
           rows={[
             ["Theme", "Managed agents and agentic workflows."],
             ["Google surface", "Managed agents and agent tooling; PM intro plus a post-hack feedback session."],
-            ["Partners", "University host (target: Cornell Tech or NYU Tandon) plus their entrepreneurship program, one accelerator, and a multi-fund VC panel as judges."],
+            ["Sample partners", "University host (Cornell Tech or NYU Tandon) plus their entrepreneurship program, one accelerator, and a multi-fund VC panel as judges."],
             ["Who comes", "Student builders, early founders, operators."],
             ["Size & vibe", "~100, campus energy, VC panel as the draw."],
           ]}
@@ -387,8 +431,8 @@ export default function DeepMindPitch() {
         </Highlight>
       </Slide>
 
-      {/* ═══ 9 · EVENT 4 ═══ */}
-      <Slide n={9} accent={INK}>
+      {/* ═══ 10 · EVENT 4 ═══ */}
+      <Slide n={10} accent={INK}>
         <Kicker accent={INK}>Event 4 · January 2027</Kicker>
         <H size="clamp(2.5rem, 9vw, 7rem)">
           Creator <span className="text-[var(--konbini-yellow)]">Track</span>
@@ -398,7 +442,7 @@ export default function DeepMindPitch() {
           rows={[
             ["Theme", "Multimodal generation for creators and media."],
             ["Google surface", "Veo, Imagen, multimodal generation."],
-            ["Partners", "Creator community and media partners (targets), one fund."],
+            ["Sample partners", "Creator community and media partners, one fund."],
             ["Who comes", "Creators, designers, media builders, not just engineers."],
             ["Size & vibe", "~80, showcase-heavy, output you can watch."],
           ]}
@@ -412,19 +456,20 @@ export default function DeepMindPitch() {
       {/* ═══ act divider ═══ */}
       <ActMarquee text="THE MONEY & THE ASK" />
 
-      {/* ═══ 10 · COSTS ═══ */}
-      <Slide n={10} accent={NEON.red}>
+      {/* ═══ 11 · COSTS ═══ */}
+      <Slide n={11} accent={NEON.red}>
         <Kicker accent={NEON.red}>What each event costs</Kicker>
         <H>Indicative budget per event</H>
         <p className="mt-6 font-[family-name:var(--font-mono)] text-xs sm:text-sm leading-relaxed max-w-2xl text-white/60">
-          For a full-day event, using the flagship Betaworks format as the
-          baseline.
+          These were the estimated expenses for the June hackathon at
+          Betaworks — the same payment structure carries over as the baseline
+          for each full-day event.
         </p>
         <div className="mt-10 space-y-px bg-white/10 border border-white/10 max-w-3xl">
           {[
             ["Venue, AV, staffing, and food (Betaworks full-day package — June hackathon model)", "$6,500"],
             ["Photography and videography", "$3,000"],
-            ["Forever 22 planning, hosting, and day-of logistics", "$10,000"],
+            ["Forever 22 planning, admin, hosting, and day-of logistics", "$10,000"],
           ].map(([item, cost]) => (
             <div key={item} className="bg-black p-5 flex items-baseline justify-between gap-6">
               <p className="font-[family-name:var(--font-mono)] text-xs sm:text-sm text-white/75 leading-relaxed">{item}</p>
@@ -445,8 +490,8 @@ export default function DeepMindPitch() {
         </p>
       </Slide>
 
-      {/* ═══ 11 · THE ASK ═══ */}
-      <Slide n={11} accent={NEON.blue}>
+      {/* ═══ 12 · THE ASK ═══ */}
+      <Slide n={12} accent={NEON.blue}>
         <Kicker accent={NEON.blue}>The ask</Kicker>
         <H>What we would want from Google</H>
         <div className="mt-12 space-y-5">
@@ -479,8 +524,8 @@ export default function DeepMindPitch() {
         </div>
       </Slide>
 
-      {/* ═══ 12 · WHAT GOOGLE GETS ═══ */}
-      <Slide n={12} accent={NEON.green}>
+      {/* ═══ 13 · WHAT GOOGLE GETS ═══ */}
+      <Slide n={13} accent={NEON.green}>
         <Kicker accent={NEON.green}>The return</Kicker>
         <H>What Google gets</H>
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 border border-white/10">
@@ -499,8 +544,8 @@ export default function DeepMindPitch() {
         </div>
       </Slide>
 
-      {/* ═══ 13 · OPEN QUESTIONS ═══ */}
-      <Slide n={13} accent={INK}>
+      {/* ═══ 14 · OPEN QUESTIONS ═══ */}
+      <Slide n={14} accent={INK}>
         <Kicker accent={INK}>Open questions for you</Kicker>
         <span className="scrawl text-[var(--konbini-yellow)] text-3xl sm:text-5xl -rotate-2 mb-4 inline-block">
           your move

@@ -104,7 +104,7 @@ function H({ children, size = "clamp(2.5rem, 7vw, 6rem)" }: { children: React.Re
 
 export default function Pitch() {
   return (
-    <div className="pitch-deck h-screen overflow-y-auto snap-y snap-mandatory bg-white text-black selection:bg-[var(--konbini-yellow)] selection:text-black">
+    <div className="pitch-deck h-screen overflow-y-auto md:snap-y md:snap-mandatory bg-white text-black selection:bg-[var(--konbini-yellow)] selection:text-black">
       {/* nav */}
       <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b-2 border-black/10">
         <div className="max-w-[1100px] mx-auto flex items-center justify-between px-6 sm:px-10 lg:px-14 py-3.5">
