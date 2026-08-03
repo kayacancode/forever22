@@ -467,9 +467,9 @@ export default function DeepMindPitch() {
         </p>
         <div className="mt-10 space-y-px bg-white/10 border border-white/10 max-w-3xl">
           {[
-            ["Venue, AV, staffing, and food (Betaworks full-day package — June hackathon model)", "$6,500"],
-            ["Photography and videography", "$3,000"],
-            ["Forever 22 planning, admin, hosting, and day-of logistics", "$10,000"],
+            ["Venue, AV, staffing, and food (Betaworks full-day package — June hackathon model)", "$6,000"],
+            ["Photography and videography", "$1,500"],
+            ["Forever 22 planning, admin, hosting, and day-of logistics", "$5,000"],
           ].map(([item, cost]) => (
             <div key={item} className="bg-black p-5 flex items-baseline justify-between gap-6">
               <p className="font-[family-name:var(--font-mono)] text-xs sm:text-sm text-white/75 leading-relaxed">{item}</p>
@@ -478,16 +478,28 @@ export default function DeepMindPitch() {
           ))}
           <div className="bg-black p-5 flex items-baseline justify-between gap-6 border-t-2 border-white/25">
             <p className="font-[family-name:var(--font-anton)] text-lg sm:text-xl uppercase">Per-event total</p>
-            <span className="font-[family-name:var(--font-anton)] text-2xl sm:text-3xl text-[var(--konbini-yellow)]">$19,500</span>
+            <span className="font-[family-name:var(--font-anton)] text-2xl sm:text-3xl text-[var(--konbini-yellow)]">$12,500</span>
           </div>
         </div>
         <p className="mt-8 font-[family-name:var(--font-mono)] text-xs sm:text-sm text-white/70 leading-relaxed max-w-2xl">
-          Across four events, the program runs to roughly $78,000 over six
+          Across four events, the program runs to roughly $50,000 over six
           months. That is the ceiling. The venue, AV, staffing, and food line
           varies by host: campus and partner-hosted events can reduce or waive
           it, and the smaller SMB event costs less, so the real program number
           lands below that once venues are set.
         </p>
+        <div className="mt-8 border-l-2 pl-5 max-w-2xl" style={{ borderColor: NEON.red }}>
+          <p className="font-[family-name:var(--font-anton)] text-lg sm:text-xl uppercase">
+            Google does not have to carry it alone
+          </p>
+          <p className="mt-2 font-[family-name:var(--font-mono)] text-xs sm:text-sm text-white/70 leading-relaxed">
+            We are open to bringing in co-sponsors to share the per-event cost —
+            with Google as the anchor partner and the themes still set with your
+            teams. If there are companies in your orbit that make sense next to
+            you in these rooms, we would rather build that list with you than
+            around you. Any partner we bring is yours to approve.
+          </p>
+        </div>
       </Slide>
 
       {/* ═══ 12 · THE ASK ═══ */}
@@ -556,6 +568,7 @@ export default function DeepMindPitch() {
             "Which Google product teams should be baked in, and at what point in the design?",
             "Is the SMB format interesting enough to be its own event, or better as a track inside a bigger one?",
             "On Google for Startups: are we a feeder, a co-program, or both?",
+            "Are you open to co-sponsors on cost — and who would you want in the room?",
           ].map((q, i) => (
             <div key={i} className="flex gap-5 border-b border-white/10 pb-5">
               <span className="font-[family-name:var(--font-anton)] text-3xl text-white/20">{String(i + 1).padStart(2, "0")}</span>
