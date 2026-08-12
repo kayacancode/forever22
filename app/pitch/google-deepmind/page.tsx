@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import ExportPdfButton from "./ExportPdfButton";
 
 export const metadata: Metadata = {
   title: "Forever 22 × Google DeepMind — Program Proposal",
@@ -84,6 +85,10 @@ function Slide({ n, inverted = false, accent = INK, children }: SlideProps) {
           <Counter n={n} accent={inverted ? NEON.red : accent} />
         </div>
         <div className="flex-1 flex flex-col justify-center">{children}</div>
+        <div className="mt-12 pt-4 border-t border-black/10 flex flex-wrap items-center justify-between gap-2 anno opacity-40">
+          <span>confidential &amp; proprietary · forever 22 llc</span>
+          <span>proposal valid through 09.11.2026</span>
+        </div>
       </div>
     </section>
   );
@@ -120,7 +125,7 @@ export default function DeepMindPitch() {
   return (
     <div className="pitch-deck h-screen overflow-y-auto md:snap-y md:snap-mandatory bg-white text-black selection:bg-[var(--konbini-yellow)] selection:text-black">
       {/* nav */}
-      <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b-2 border-black/10">
+      <header className="print:hidden sticky top-0 z-40 bg-white/90 backdrop-blur border-b-2 border-black/10">
         <div className="max-w-[1100px] mx-auto flex items-center justify-between px-6 sm:px-10 lg:px-14 py-3.5">
           <Link href="/" className="flex items-center gap-2.5">
             <Image src="/logo-stamp.png" alt="Forever 22" width={26} height={26} />
@@ -128,8 +133,9 @@ export default function DeepMindPitch() {
               FOREVER22
             </span>
           </Link>
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-3 sm:gap-5">
             <span className="anno hidden sm:inline opacity-50">× google deepmind · 2026</span>
+            <ExportPdfButton />
             <Link
               href="/connect"
               className="font-[family-name:var(--font-pixel)] text-sm px-3.5 py-1.5 bg-[var(--konbini-yellow)] text-black border-2 border-black hover:bg-white transition-colors"
@@ -171,6 +177,12 @@ export default function DeepMindPitch() {
         <div className="mt-12 anno opacity-50">
           Prepared by Kaya Jones · Forever 22 LLC · @forever22ai
         </div>
+        <p className="mt-4 font-[family-name:var(--font-mono)] text-[11px] leading-relaxed max-w-2xl text-black/50">
+          Confidential &amp; proprietary to Forever 22 LLC — prepared
+          exclusively for Google DeepMind for the purpose of evaluating this
+          hackathon program partnership. Please keep it within your team. This
+          proposal is valid for 30 days and expires September 11, 2026.
+        </p>
       </Slide>
 
       {/* ═══ 2 · WHERE THIS COMES FROM ═══ */}
@@ -349,9 +361,10 @@ export default function DeepMindPitch() {
         <div className="mt-10 space-y-px bg-white/10 border border-white/10">
           {[
             { t: "Confirmed base", b: "Betaworks (host and co-programming) — the first venue, not the only one.", accent: NEON.green },
-            { t: "Venues we'd expand to", b: "Datadog's NYC office, Cornell Tech, and other partner offices around the city.", accent: NEON.blue },
+            { t: "Intro in motion", b: "Cornell Tech — a facilities introduction is underway for the November campus event, with a faculty champion inside the school.", accent: NEON.green },
+            { t: "Venues we'd expand to", b: "Datadog's NYC office and other partner offices around the city.", accent: NEON.blue },
             { t: "Funds & VCs", b: "Factorial Capital, Drive Capital, and a rotating VC panel drawn from the Betaworks network.", accent: NEON.red },
-            { t: "Universities", b: "Cornell Tech, NYU Tandon, Columbia, Princeton, Penn, and their entrepreneurship programs.", accent: NEON.blue },
+            { t: "Universities", b: "NYU Tandon, Columbia, Princeton, Penn, and their entrepreneurship programs.", accent: NEON.blue },
             { t: "Non-profits & orgs", b: "NSBE (National Society of Black Engineers) and similar communities for reach beyond the NYC AI bubble.", accent: INK },
             { t: "Accelerators", b: "Techstars NYC, ERA, Antler, plus the Forever 22 winner program.", accent: NEON.green },
             { t: "Creator & media", b: "Creator and media communities for the non-developer track.", accent: NEON.red },
@@ -420,7 +433,7 @@ export default function DeepMindPitch() {
           rows={[
             ["Theme", "Managed agents and agentic workflows."],
             ["Google surface", "Managed agents and agent tooling; PM intro plus a post-hack feedback session."],
-            ["Sample partners", "University host (Cornell Tech or NYU Tandon) plus their entrepreneurship program, one accelerator, and a multi-fund VC panel as judges."],
+            ["Sample partners", "Cornell Tech as the likely host — facilities intro underway — plus their entrepreneurship program, one accelerator, and a multi-fund VC panel as judges."],
             ["Who comes", "Student builders, early founders, operators."],
             ["Size & vibe", "~100, campus energy, VC panel as the draw."],
           ]}
@@ -467,9 +480,9 @@ export default function DeepMindPitch() {
         </p>
         <div className="mt-10 space-y-px bg-white/10 border border-white/10 max-w-3xl">
           {[
-            ["Venue, AV, staffing, and food (Betaworks full-day package — June hackathon model)", "$6,000"],
+            ["Venue, AV, staffing, and food (Betaworks full-day package — June hackathon model)", "$3,000"],
             ["Photography and videography", "$1,500"],
-            ["Forever 22 planning, admin, hosting, and day-of logistics", "$5,000"],
+            ["Forever 22 planning, admin, hosting, and day-of logistics", "$3,000"],
           ].map(([item, cost]) => (
             <div key={item} className="bg-black p-5 flex items-baseline justify-between gap-6">
               <p className="font-[family-name:var(--font-mono)] text-xs sm:text-sm text-white/75 leading-relaxed">{item}</p>
@@ -478,15 +491,16 @@ export default function DeepMindPitch() {
           ))}
           <div className="bg-black p-5 flex items-baseline justify-between gap-6 border-t-2 border-white/25">
             <p className="font-[family-name:var(--font-anton)] text-lg sm:text-xl uppercase">Per-event total</p>
-            <span className="font-[family-name:var(--font-anton)] text-2xl sm:text-3xl text-[var(--konbini-yellow)]">$12,500</span>
+            <span className="font-[family-name:var(--font-anton)] text-2xl sm:text-3xl text-[var(--konbini-yellow)]">$7,500</span>
           </div>
         </div>
         <p className="mt-8 font-[family-name:var(--font-mono)] text-xs sm:text-sm text-white/70 leading-relaxed max-w-2xl">
-          Across four events, the program runs to roughly $50,000 over six
-          months. That is the ceiling. The venue, AV, staffing, and food line
-          varies by host: campus and partner-hosted events can reduce or waive
-          it, and the smaller SMB event costs less, so the real program number
-          lands below that once venues are set.
+          Across four events, the program runs to roughly $30,000 over six
+          months. The venue, AV, staffing, and food line moves with the host,
+          and campus reads as a swap rather than a discount: early guidance from
+          Cornell Tech puts space and refreshments for a hackathon at a few
+          thousand dollars plus — the same order as the Betaworks line. We will
+          firm every line against the actual venue before anything is committed.
         </p>
         <div className="mt-8 border-l-2 pl-5 max-w-2xl" style={{ borderColor: NEON.red }}>
           <p className="font-[family-name:var(--font-anton)] text-lg sm:text-xl uppercase">
@@ -498,6 +512,11 @@ export default function DeepMindPitch() {
             teams. If there are companies in your orbit that make sense next to
             you in these rooms, we would rather build that list with you than
             around you. Any partner we bring is yours to approve.
+          </p>
+          <p className="mt-3 font-[family-name:var(--font-mono)] text-xs sm:text-sm text-white/55 leading-relaxed">
+            This is not hypothetical: at Cornell Tech, the AI &amp; Blockchain
+            student org has already been raised as a partner that would help
+            fundraise against the November event.
           </p>
         </div>
       </Slide>
@@ -601,13 +620,25 @@ export default function DeepMindPitch() {
 
       {/* footer */}
       <footer className="snap-start bg-white border-t-2 border-black/10">
-        <div className="max-w-[1100px] mx-auto px-6 sm:px-10 lg:px-14 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="font-[family-name:var(--font-mono)] text-[11px] opacity-50">
-            © 2026 Forever 22 LLC. All rights reserved.
+        <div className="max-w-[1100px] mx-auto px-6 sm:px-10 lg:px-14 py-8">
+          <p className="font-[family-name:var(--font-mono)] text-[11px] leading-relaxed opacity-50 max-w-3xl">
+            This proposal and its contents are the confidential and proprietary
+            property of Forever 22 LLC, prepared exclusively for Google
+            DeepMind for the purpose of evaluating a potential hackathon
+            program partnership. It may be shared within Google for that
+            purpose only, and may not be distributed, reproduced, or shared
+            outside Google without the prior written consent of Forever 22 LLC.
+            Program terms and pricing are valid for 30 days from August 12,
+            2026 and expire on September 11, 2026.
+          </p>
+          <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="font-[family-name:var(--font-mono)] text-[11px] opacity-50">
+              © 2026 Forever 22 LLC. All rights reserved.
+            </div>
+            <Link href="/" className="print:hidden retro-link font-[family-name:var(--font-mono)] text-[11px]">
+              ← back to forever22.com
+            </Link>
           </div>
-          <Link href="/" className="retro-link font-[family-name:var(--font-mono)] text-[11px]">
-            ← back to forever22.com
-          </Link>
         </div>
       </footer>
     </div>

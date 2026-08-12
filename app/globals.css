@@ -232,3 +232,32 @@ a.retro-link:hover {
 .pitch-deck .text-\[var\(--konbini-yellow\)\] {
   color: var(--konbini-yellow-ink);
 }
+
+/* Pitch deck → PDF export (browser print dialog / Save as PDF) */
+@media print {
+  .pitch-deck {
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .pitch-deck,
+  .pitch-deck * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* One slide per PDF page */
+  .pitch-deck section {
+    break-after: page;
+    border-bottom: none;
+  }
+
+  /* Let each slide shrink to its content instead of forcing viewport height */
+  .pitch-deck .min-h-\[78vh\] {
+    min-height: 0;
+  }
+
+  .pitch-deck .marquee-track {
+    animation: none;
+  }
+}
