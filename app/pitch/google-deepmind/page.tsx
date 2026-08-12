@@ -480,9 +480,9 @@ export default function DeepMindPitch() {
         </p>
         <div className="mt-10 space-y-px bg-white/10 border border-white/10 max-w-3xl">
           {[
-            ["Venue, AV, staffing, and food (Betaworks full-day package — June hackathon model)", "$3,000"],
-            ["Photography and videography", "$1,500"],
-            ["Forever 22 planning, admin, hosting, and day-of logistics", "$3,000"],
+            ["Venue, AV, staffing, and food (Betaworks full-day package — June hackathon model)", "$5,000"],
+            ["Photography and videography", "$2,000"],
+            ["Forever 22 planning, admin, hosting, and day-of logistics", "$5,000"],
           ].map(([item, cost]) => (
             <div key={item} className="bg-black p-5 flex items-baseline justify-between gap-6">
               <p className="font-[family-name:var(--font-mono)] text-xs sm:text-sm text-white/75 leading-relaxed">{item}</p>
@@ -491,11 +491,11 @@ export default function DeepMindPitch() {
           ))}
           <div className="bg-black p-5 flex items-baseline justify-between gap-6 border-t-2 border-white/25">
             <p className="font-[family-name:var(--font-anton)] text-lg sm:text-xl uppercase">Per-event total</p>
-            <span className="font-[family-name:var(--font-anton)] text-2xl sm:text-3xl text-[var(--konbini-yellow)]">$7,500</span>
+            <span className="font-[family-name:var(--font-anton)] text-2xl sm:text-3xl text-[var(--konbini-yellow)]">$12,000</span>
           </div>
         </div>
         <p className="mt-8 font-[family-name:var(--font-mono)] text-xs sm:text-sm text-white/70 leading-relaxed max-w-2xl">
-          Across four events, the program runs to roughly $30,000 over six
+          Across four events, the program runs to roughly $48,000 over six
           months. The venue, AV, staffing, and food line moves with the host,
           and campus reads as a swap rather than a discount: early guidance from
           Cornell Tech puts space and refreshments for a hackathon at a few
