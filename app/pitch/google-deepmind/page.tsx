@@ -607,7 +607,7 @@ export default function DeepMindPitch() {
             → LET&apos;S TALK
           </Link>
           <a
-            href="https://x.com/forever22studio"
+            href="https://x.com/forever22ai"
             target="_blank"
             rel="noopener noreferrer"
             className="font-[family-name:var(--font-pixel)] text-base text-black/65 hover:text-[var(--konbini-green)] transition-colors"

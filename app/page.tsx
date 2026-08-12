@@ -496,8 +496,8 @@ export default function Home() {
             © {new Date().getFullYear()} Forever 22 LLC. All rights reserved.
           </div>
           <div className="flex items-center gap-4">
-            <a href="https://x.com/forever22studio" target="_blank" rel="noopener noreferrer" className="retro-link font-[family-name:var(--font-mono)] text-[10px] sm:text-xs">
-              @forever22studio
+            <a href="https://x.com/forever22ai" target="_blank" rel="noopener noreferrer" className="retro-link font-[family-name:var(--font-mono)] text-[10px] sm:text-xs">
+              @forever22ai
             </a>
             <a href="mailto:kaya@forever22.com" className="retro-link font-[family-name:var(--font-mono)] text-[10px] sm:text-xs">
               email
