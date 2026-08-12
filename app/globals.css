@@ -233,8 +233,15 @@ a.retro-link:hover {
   color: var(--konbini-yellow-ink);
 }
 
-/* Pitch deck → PDF export (browser print dialog / Save as PDF) */
+/* Pitch deck → PDF export: 16:9 landscape slideshow, one slide per page.
+   Used both by the build-time PDF renderer (scripts/encrypt-pitch.mjs) and by
+   the browser print dialog as a fallback. */
 @media print {
+  @page {
+    size: 13.333in 7.5in;
+    margin: 0;
+  }
+
   .pitch-deck {
     height: auto !important;
     overflow: visible !important;
@@ -246,18 +253,34 @@ a.retro-link:hover {
     print-color-adjust: exact;
   }
 
-  /* One slide per PDF page */
+  /* Each slide fills exactly one 16:9 page */
   .pitch-deck section {
+    height: 7.5in;
+    overflow: hidden;
     break-after: page;
     border-bottom: none;
   }
 
-  /* Let each slide shrink to its content instead of forcing viewport height */
-  .pitch-deck .min-h-\[78vh\] {
+  .pitch-deck section > div {
     min-height: 0;
+    height: 100%;
+    padding-top: 0.45in;
+    padding-bottom: 0.45in;
   }
 
   .pitch-deck .marquee-track {
     animation: none;
+  }
+
+  /* Closing page: the confidentiality notice, vertically centered */
+  .pitch-deck footer {
+    height: 7.5in;
+    display: flex;
+    align-items: center;
+    border-top: none;
+  }
+
+  .pitch-deck footer > div {
+    width: 100%;
   }
 }

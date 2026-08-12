@@ -649,7 +649,7 @@ export default function DeepMindPitch() {
 function ActMarquee({ text }: { text: string }) {
   const items = [text, "✦", "FOREVER 22", "★", text, "◆", "FOREVER 22", "●"];
   return (
-    <div className="border-y-2 border-black overflow-hidden py-3" style={{ background: "var(--konbini-yellow)" }}>
+    <div className="print:hidden border-y-2 border-black overflow-hidden py-3" style={{ background: "var(--konbini-yellow)" }}>
       <div className="marquee-track whitespace-nowrap flex items-center" style={{ width: "max-content" }}>
         {[...items, ...items].map((item, i) => (
           <span
