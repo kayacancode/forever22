@@ -115,6 +115,7 @@ function decryptorPage({ salt, iv, ct }, { heading, storageKey }) {
   .err{color:#e63322;font-size:12px;margin-top:14px;min-height:16px;letter-spacing:.04em}
   .foot{margin-top:36px;font-size:11px;color:rgba(255,255,255,.35)}
   .foot a{color:#2255cc}
+  @media print{html,body{height:auto}}
 </style>
 </head>
 <body>
@@ -155,6 +156,13 @@ function decryptorPage({ salt, iv, ct }, { heading, storageKey }) {
       window.scrollTo(0,0);
     });
   }
+  // The decrypted deck is injected as inert HTML (its scripts are stripped at
+  // build time), so interactive bits like the export-pdf button are wired up
+  // here via delegation instead of React.
+  document.addEventListener("click",function(ev){
+    var t=ev.target&&ev.target.closest?ev.target.closest("[data-print]"):null;
+    if(t){ev.preventDefault();window.print();}
+  });
   var f=document.getElementById("f"),pw=document.getElementById("pw"),err=document.getElementById("err");
   f.addEventListener("submit",function(e){
     e.preventDefault();err.textContent="";
